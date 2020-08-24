@@ -10,8 +10,7 @@ RUN apt-get update \
 		xvfb software-properties-common zip wget ca-certificates ntpdate \
 		libnss3-dev libxss1 libappindicator3-1 libindicator7 gconf-service libgconf-2-4 libpango1.0-0 xdg-utils fonts-liberation \
 	&& rm -rf /var/lib/apt/lists/*
-RUN add-apt-repository ppa:deadsnakes/ppa && apt-get update && apt-get install python3.7
-RUN update-alternatives --set python /usr/bin/python3.7
+RUN add-apt-repository ppa:deadsnakes/ppa && apt-get update && apt-get install python3.7 && update-alternatives --set python /usr/bin/python3.7
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
